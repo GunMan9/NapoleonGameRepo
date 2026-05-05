@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4k8n3kad1tg5"]
+
+[ext_resource type="Script" uid="uid://fvvscbyracey" path="res://Main/PlayerMovement.gd" id="1_oqfe6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b1k5n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oqfe6"]
+
+[node name="Player" type="Node3D" unique_id=1139382680]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2053650671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49965566, 0)
+script = ExtResource("1_oqfe6")
+
+[node name="Player" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1197239440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1881087, 0)
+mesh = SubResource("CapsuleMesh_b1k5n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=988364870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.188, 0)
+shape = SubResource("CapsuleShape3D_oqfe6")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=2136544938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7218246, 0.31975412)
+fov = 80.0
