@@ -30,6 +30,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032307625, 0.5846557, -0.32
 [node name="HealthComponent" type="Node" parent="CharacterBody3D" unique_id=222519866]
 script = ExtResource("3_qvhan")
 
+[node name="MoraleComponent" type="Node" parent="CharacterBody3D" unique_id=498187594]
+
 [node name="UI" type="Control" parent="." unique_id=1937098593]
 layout_mode = 3
 anchors_preset = 0
@@ -50,3 +52,14 @@ offset_bottom = -10.0
 grow_vertical = 0
 script = ExtResource("1_2w1kt")
 health_component = NodePath("../../../CharacterBody3D/HealthComponent")
+
+[node name="MoraleBar" type="ProgressBar" parent="UI/Bars" unique_id=691937206]
+modulate = Color(0.60784316, 0.26666668, 0.9529412, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -95.0
+offset_right = 219.0
+offset_bottom = -55.0
+grow_vertical = 0
