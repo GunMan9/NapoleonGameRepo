@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://bt7pvpxp7cdja"]
 
-[ext_resource type="Script" uid="uid://xx8rjoig4d53" path="res://Main/health_bar.gd" id="1_2w1kt"]
 [ext_resource type="PackedScene" uid="uid://c4k8n3kad1tg5" path="res://Main/player.tscn" id="1_yh5la"]
-[ext_resource type="Script" uid="uid://c07xxpwijvr6q" path="res://Main/MoraleSystem.gd" id="3_eunhr"]
-[ext_resource type="Script" uid="uid://ktd24lly4n0j" path="res://Main/HealthSystem.gd" id="3_qvhan"]
-[ext_resource type="Script" uid="uid://p5q4yrbpokpt" path="res://Main/morale_bar.gd" id="5_k3v36"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7u77a"]
 
@@ -53,47 +49,5 @@ mesh = SubResource("CapsuleMesh_k3v36")
 shape = SubResource("CapsuleShape3D_liyct")
 
 [node name="CharacterBody3D" parent="Players/Team1" unique_id=647834110 instance=ExtResource("1_yh5la")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032307625, 0.5846557, -0.3235526)
-
-[node name="HealthComponent" type="Node" parent="Players/Team1/CharacterBody3D" unique_id=222519866]
-script = ExtResource("3_qvhan")
-
-[node name="MoraleComponent" type="Node" parent="Players/Team1/CharacterBody3D" unique_id=498187594 node_paths=PackedStringArray("health_component")]
-script = ExtResource("3_eunhr")
-health_component = NodePath("../HealthComponent")
 
 [node name="Team2" type="Node" parent="Players" unique_id=925992841]
-
-[node name="UI" type="Control" parent="." unique_id=1937098593]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Bars" type="CanvasLayer" parent="UI" unique_id=1958045647]
-
-[node name="HealthBar" type="ProgressBar" parent="UI/Bars" unique_id=808426014 node_paths=PackedStringArray("health_component")]
-modulate = Color(0, 1, 0, 1)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -50.0
-offset_right = 219.0
-offset_bottom = -10.0
-grow_vertical = 0
-script = ExtResource("1_2w1kt")
-health_component = NodePath("../../../Players/Team1/CharacterBody3D/HealthComponent")
-
-[node name="MoraleBar" type="ProgressBar" parent="UI/Bars" unique_id=691937206 node_paths=PackedStringArray("morale_component")]
-modulate = Color(0.60784316, 0.26666668, 0.9529412, 1)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -95.0
-offset_right = 219.0
-offset_bottom = -55.0
-grow_vertical = 0
-script = ExtResource("5_k3v36")
-morale_component = NodePath("../../../Players/Team1/CharacterBody3D/MoraleComponent")

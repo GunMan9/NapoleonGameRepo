@@ -7,6 +7,9 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Camera3D
 
+@export var health_component: HealthComponent
+@export var morale_component: MoraleComponent
+
 func _ready():
 	await get_tree().process_frame
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

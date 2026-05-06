@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://c4k8n3kad1tg5"]
 
 [ext_resource type="Script" uid="uid://fvvscbyracey" path="res://Main/PlayerMovement.gd" id="1_oqfe6"]
+[ext_resource type="Script" uid="uid://ktd24lly4n0j" path="res://Main/HealthSystem.gd" id="2_sbsr6"]
+[ext_resource type="Script" uid="uid://c07xxpwijvr6q" path="res://Main/MoraleSystem.gd" id="3_v2ewq"]
+[ext_resource type="Script" uid="uid://xx8rjoig4d53" path="res://Main/health_bar.gd" id="4_e5euv"]
+[ext_resource type="Script" uid="uid://p5q4yrbpokpt" path="res://Main/morale_bar.gd" id="5_j3yh2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_b1k5n"]
 
@@ -21,3 +25,44 @@ shape = SubResource("CapsuleShape3D_oqfe6")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=817922056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7218246, 0.31975412)
 fov = 80.0
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1615094214]
+script = ExtResource("2_sbsr6")
+
+[node name="MoraleComponent" type="Node" parent="." unique_id=1692958280 node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_v2ewq")
+health_component = NodePath("../HealthComponent")
+
+[node name="UI" type="Control" parent="." unique_id=600378620]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bars" type="CanvasLayer" parent="UI" unique_id=1708805804]
+
+[node name="HealthBar" type="ProgressBar" parent="UI/Bars" unique_id=93598716 node_paths=PackedStringArray("health_component")]
+modulate = Color(0, 1, 0, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -50.0
+offset_right = 219.0
+offset_bottom = -10.0
+grow_vertical = 0
+script = ExtResource("4_e5euv")
+health_component = NodePath("../../../HealthComponent")
+
+[node name="MoraleBar" type="ProgressBar" parent="UI/Bars" unique_id=1485480496 node_paths=PackedStringArray("morale_component")]
+modulate = Color(0.60784316, 0.26666668, 0.9529412, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -95.0
+offset_right = 219.0
+offset_bottom = -55.0
+grow_vertical = 0
+script = ExtResource("5_j3yh2")
+morale_component = NodePath("../../../MoraleComponent")
