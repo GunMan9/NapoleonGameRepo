@@ -59,8 +59,6 @@ func get_teammate_positions():
 			print(member.position)
 
 func gain_morale():
-	print("formation held - morale rising")
-
 	current_morale = min(max_morale, current_morale + 1)
 	morale_changed.emit(current_morale)
 
