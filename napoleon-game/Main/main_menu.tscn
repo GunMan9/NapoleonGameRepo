@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://doa7clg8ydih8"]
+
+[ext_resource type="Script" uid="uid://djf5tuk75ms2v" path="res://Main/MainMenu.gd" id="1_fr8op"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_svypr"]
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fr8op"]
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control" unique_id=322027259]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fr8op")
+
+[node name="Background" type="ColorRect" parent="." unique_id=392186998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.13725491, 0.19215687, 1)
+
+[node name="Play" type="Button" parent="Background" unique_id=1342456728]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = 11.0
+offset_right = 122.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Credits" type="Button" parent="Background" unique_id=598581685]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.5
+offset_top = 83.5
+offset_right = 123.5
+offset_bottom = 140.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+
+[node name="Title" type="Label" parent="Background" unique_id=1521453871]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.31
+anchor_right = 0.5
+anchor_bottom = 0.31
+offset_left = -240.0
+offset_top = -94.880005
+offset_right = 239.0
+offset_bottom = 95.119995
+grow_horizontal = 2
+grow_vertical = 2
+text = "Title Goes Here"
+label_settings = SubResource("LabelSettings_svypr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="Background" unique_id=1798862576]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.358
+anchor_right = 0.5
+anchor_bottom = 0.358
+offset_left = -571.0
+offset_top = 378.016
+offset_right = -470.0
+offset_bottom = 413.016
+grow_horizontal = 2
+grow_vertical = 2
+text = "2026 Bonfyre Games
+v0.0.1"
+label_settings = SubResource("LabelSettings_fr8op")
+vertical_alignment = 2
+
+[node name="Quit" type="Button" parent="Background" unique_id=1809963030]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = 159.0
+offset_right = 124.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit
+"
+
+[node name="Credits" type="ColorRect" parent="." unique_id=17722221]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.13725491, 0.19215687, 1)
+
+[node name="Title" type="Label" parent="Credits" unique_id=857848005]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.453
+anchor_right = 0.5
+anchor_bottom = 0.453
+offset_left = -463.0
+offset_top = -133.544
+offset_right = 467.0
+offset_bottom = 95.45599
+grow_horizontal = 2
+text = "Credits
+Owner - vokrm
+Scripters - Admiral Wolf, airb0und
+Modellers - The_Warrior, UltimateChibby, vokrm"
+label_settings = SubResource("LabelSettings_svypr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Credits" unique_id=501405620]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = 113.0
+offset_right = 124.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+
+[connection signal="pressed" from="Background/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Background/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Background/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]
