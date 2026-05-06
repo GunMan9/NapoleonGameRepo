@@ -10,6 +10,9 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var health_component: HealthComponent
 @export var morale_component: MoraleComponent
 
+var bullet=load("res://Main/bullet.tscn")
+@onready var pos =$Camera3D/Gun/pos
+
 func _ready():
 	await get_tree().process_frame
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -49,6 +52,12 @@ func _input(event):
 		rotation_x = clamp(rotation_x, deg_to_rad(-90), deg_to_rad(90))
 
 		camera.rotation.x = rotation_x
+		
+	if Input.is_action_just_pressed("click"):
+		var instance = bullet.instantiate()
+		instance.position = pos.global_position
+		instance.transform.basis = pos.global_transform.basis
+		get_parent().add_child(instance)
 
 	if event is InputEventKey and event.pressed and event.keycode == KEY_TAB:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

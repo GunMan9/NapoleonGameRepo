@@ -1,25 +1,18 @@
 [gd_scene format=3 uid="uid://dk4xi7wptr18a"]
 
-[ext_resource type="Script" uid="uid://1v7mvj8vgahd" path="res://Main/bullet.gd" id="1_jknh2"]
+[ext_resource type="Script" uid="uid://c68kayejf75mv" path="res://Bullet.gd" id="1_7yx6e"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ak1bh"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_kurgh"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_jknh2"]
+[sub_resource type="SphereMesh" id="SphereMesh_et1mi"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jknh2"]
+[node name="Bullet" type="CharacterBody3D" unique_id=1720127066]
+script = ExtResource("1_7yx6e")
 
-[node name="Bullet" type="CharacterBody3D" unique_id=34699174]
-collision_layer = 2
-script = ExtResource("1_jknh2")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=427315881]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("SphereShape3D_kurgh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2052596685]
-transform = Transform3D(0.2374839, 0, 0, 0, 0.233, 0, 0, 0, 0.23606957, 0, 0, 0)
-mesh = SubResource("SphereMesh_ak1bh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=60866510]
-transform = Transform3D(0.24283358, 0, 0, 0, 0.25131255, 0, 0, 0, 0.25013465, 0, 0, 0)
-shape = SubResource("SphereShape3D_jknh2")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=604198256]
-transform = Transform3D(0.31265032, 0, 0, 0, 0.06097601, 0, 0, 0, 0.085587494, 0.14250472, 0, 0)
-mesh = SubResource("BoxMesh_jknh2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1602391004]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.402, 0, 0, 0)
+mesh = SubResource("SphereMesh_et1mi")

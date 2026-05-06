@@ -1,31 +1,17 @@
 [gd_scene format=3 uid="uid://c4k8n3kad1tg5"]
 
 [ext_resource type="Script" uid="uid://fvvscbyracey" path="res://Main/PlayerMovement.gd" id="1_oqfe6"]
+[ext_resource type="PackedScene" uid="uid://b3duj0uqqdsun" path="res://Elonmusket.glb" id="2_j3yh2"]
 [ext_resource type="Script" uid="uid://ktd24lly4n0j" path="res://Main/HealthSystem.gd" id="2_sbsr6"]
 [ext_resource type="Script" uid="uid://c07xxpwijvr6q" path="res://Main/MoraleSystem.gd" id="3_v2ewq"]
 [ext_resource type="Script" uid="uid://xx8rjoig4d53" path="res://Main/health_bar.gd" id="4_e5euv"]
 [ext_resource type="Script" uid="uid://p5q4yrbpokpt" path="res://Main/morale_bar.gd" id="5_j3yh2"]
-[ext_resource type="Script" uid="uid://41b5nkvwghle" path="res://Main/gun_script.gd" id="6_j3yh2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_b1k5n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oqfe6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j3yh2"]
-
-[sub_resource type="GDScript" id="GDScript_sld17"]
-script/source = "extends MeshInstance3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=647834110]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49965566, 0)
@@ -42,6 +28,16 @@ shape = SubResource("CapsuleShape3D_oqfe6")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=817922056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7218246, 0.31975412)
 fov = 80.0
+
+[node name="Gun" type="Node3D" parent="Camera3D" unique_id=216251111]
+
+[node name="pos" type="MeshInstance3D" parent="Camera3D/Gun" unique_id=2027232952]
+transform = Transform3D(0.1, 0, 0, 0, 0.102, 0, 0, 0, 0.1, 0.5012586, -0.26719284, -2.5185935)
+visible = false
+mesh = SubResource("BoxMesh_j3yh2")
+
+[node name="Model" parent="Camera3D/Gun" unique_id=1475792450 instance=ExtResource("2_j3yh2")]
+transform = Transform3D(-0.081, 0, -1.1802075e-08, 0, 0.09, 0, 7.081245e-09, 0, -0.135, 0.5012586, -0.27475715, -1.0871125)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1615094214]
 script = ExtResource("2_sbsr6")
@@ -83,12 +79,3 @@ offset_bottom = -55.0
 grow_vertical = 0
 script = ExtResource("5_j3yh2")
 morale_component = NodePath("../../../MoraleComponent")
-
-[node name="GunNode" type="Node3D" parent="." unique_id=1956993565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33441246, 1.498214, -0.6335108)
-script = ExtResource("6_j3yh2")
-
-[node name="GunMesh" type="MeshInstance3D" parent="GunNode" unique_id=825494138]
-transform = Transform3D(0.080693364, 0, 0, 0, 0.08879173, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_j3yh2")
-script = SubResource("GDScript_sld17")

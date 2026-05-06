@@ -49,5 +49,6 @@ mesh = SubResource("CapsuleMesh_k3v36")
 shape = SubResource("CapsuleShape3D_liyct")
 
 [node name="CharacterBody3D" parent="Players/Team1" unique_id=647834110 instance=ExtResource("1_yh5la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15728283, 0.5846557, -1.2025471)
 
 [node name="Team2" type="Node" parent="Players" unique_id=925992841]
