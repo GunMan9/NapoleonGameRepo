@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bt7pvpxp7cdja"]
 
+[ext_resource type="Script" uid="uid://xx8rjoig4d53" path="res://Main/health_bar.gd" id="1_2w1kt"]
 [ext_resource type="PackedScene" uid="uid://c4k8n3kad1tg5" path="res://Main/player.tscn" id="1_yh5la"]
+[ext_resource type="Script" uid="uid://ktd24lly4n0j" path="res://Main/HealthSystem.gd" id="3_qvhan"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7u77a"]
 
@@ -9,18 +11,42 @@
 [node name="Main" type="Node3D" unique_id=1670441611]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1807291136]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 19.951035, 8.798187, -7.394811)
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2032350504]
 
 [node name="Floor" type="MeshInstance3D" parent="StaticBody3D" unique_id=439253767]
-transform = Transform3D(575.6688, 0, 0, 0, 0.17014605, 0, 0, 0, 610.30725, 0, 0, 0)
+transform = Transform3D(500, 0, 0, 0, 0.17, 0, 0, 0, 500, -0.022220612, -9.536743e-07, -0.045679092)
 mesh = SubResource("BoxMesh_7u77a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1092351289]
-transform = Transform3D(38.9, 0, 0, 0, 0.17, 0, 0, 0, 40.3, 0, 0, 0)
+transform = Transform3D(500, 0, 0, 0, 0.17, 0, 0, 0, 500, 0, 0, 0)
 shape = SubResource("BoxShape3D_yh5la")
 
 [node name="CharacterBody3D" parent="." unique_id=647834110 instance=ExtResource("1_yh5la")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4942932, 0.58465475, 0.1926403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032307625, 0.5846557, -0.3235526)
+
+[node name="HealthComponent" type="Node" parent="CharacterBody3D" unique_id=222519866]
+script = ExtResource("3_qvhan")
+
+[node name="UI" type="Control" parent="." unique_id=1937098593]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bars" type="CanvasLayer" parent="UI" unique_id=1958045647]
+
+[node name="HealthBar" type="ProgressBar" parent="UI/Bars" unique_id=808426014 node_paths=PackedStringArray("health_component")]
+modulate = Color(0, 1, 0, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -50.0
+offset_right = 219.0
+offset_bottom = -10.0
+grow_vertical = 0
+script = ExtResource("1_2w1kt")
+health_component = NodePath("../../../CharacterBody3D/HealthComponent")
