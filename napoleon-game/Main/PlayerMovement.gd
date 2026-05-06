@@ -30,7 +30,7 @@ var rotation_x := 0.0
 func _ready():
 	await get_tree().process_frame
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 func get_spread_direction(base_direction: Vector3) -> Vector3:
 	if morale_component == null:
 		return base_direction

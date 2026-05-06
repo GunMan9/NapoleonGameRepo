@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://hh1ccmapqkeo"]
+
+[ext_resource type="Script" uid="uid://dfgj00hideoc2" path="res://TeamHandler.gd" id="1_v1ddi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1ddi"]
+font_size = 50
+
+[node name="TeamSelector" type="Control" unique_id=1472489195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v1ddi")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2055392604]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09411765, 0.13725491, 0.19215687, 1)
+
+[node name="Title" type="Label" parent="Background" unique_id=707948911]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.165
+anchor_right = 0.5
+anchor_bottom = 0.165
+offset_left = -233.0
+offset_top = -56.920006
+offset_right = 234.0
+offset_bottom = 57.079994
+grow_horizontal = 2
+text = "Pick a Team"
+label_settings = SubResource("LabelSettings_v1ddi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Team1_Button" type="Button" parent="Background" unique_id=1717800957]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28300002
+anchor_top = 0.50200003
+anchor_right = 0.28300002
+anchor_bottom = 0.50200003
+offset_left = -107.01602
+offset_top = -107.29602
+offset_right = 107.98398
+offset_bottom = 107.70398
+grow_vertical = 2
+text = "Team1 (nil)
+"
+
+[node name="Team2_Button" type="Button" parent="Background" unique_id=1045434738]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.71900004
+anchor_top = 0.5
+anchor_right = 0.71900004
+anchor_bottom = 0.5
+offset_left = -107.288025
+offset_top = -106.0
+offset_right = 107.711975
+offset_bottom = 109.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Team2 (nil)
+"
+
+[node name="Back" type="Button" parent="Background" unique_id=1064481071]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.84200007
+anchor_right = 0.5
+anchor_bottom = 0.84200007
+offset_left = -123.0
+offset_top = -28.616028
+offset_right = 122.0
+offset_bottom = 28.383972
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="Background/Team1_Button" to="." method="_on_team_1_button_pressed"]
+[connection signal="pressed" from="Background/Team2_Button" to="." method="_on_team_2_button_pressed"]
+[connection signal="pressed" from="Background/Back" to="." method="_on_back_pressed"]
