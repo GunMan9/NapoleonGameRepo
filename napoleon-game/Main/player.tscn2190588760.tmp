@@ -85,10 +85,12 @@ script = ExtResource("5_j3yh2")
 morale_component = NodePath("../../../MoraleComponent")
 
 [node name="GunNode" type="Node3D" parent="." unique_id=1956993565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33441246, 1.498214, -0.6335108)
 script = ExtResource("6_j3yh2")
 
 [node name="GunMesh" type="MeshInstance3D" parent="GunNode" unique_id=825494138]
-transform = Transform3D(0.080693364, 0, 0, 0, 0.08879173, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.080693364, 0, 0, 0, 0.08879173, 0, 0, 0, 1, 0.28555357, 1.5084271, -0.7546215)
 mesh = SubResource("BoxMesh_j3yh2")
 script = SubResource("GDScript_sld17")
+
+[node name="firepoint" type="Node3D" parent="GunNode" unique_id=2140065389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28723526, 1.4996994, -1.275744)
