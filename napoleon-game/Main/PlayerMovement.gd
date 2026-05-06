@@ -8,6 +8,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Camera3D
 
 func _ready():
+	await get_tree().process_frame
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
@@ -38,11 +39,16 @@ func _physics_process(delta):
 var rotation_x := 0.0
 
 func _input(event):
-	if event is InputEventMouseMotion:
-		# Rotate player left/right
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 
 		rotation_x -= event.relative.y * mouse_sensitivity
 		rotation_x = clamp(rotation_x, deg_to_rad(-90), deg_to_rad(90))
 
 		camera.rotation.x = rotation_x
+
+	if event is InputEventKey and event.pressed and event.keycode == KEY_TAB:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
