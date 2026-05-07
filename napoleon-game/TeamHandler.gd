@@ -38,6 +38,9 @@ func _update_team_ui():
 
 	var t1 = team1_node.get_meta("Team")
 	var t2 = team2_node.get_meta("Team")
+	
+	print(team1_node.get_meta("Team"))
+	print(team2_node.get_meta("Team"))
 
 	var t1_count = team1_node.get_child_count()
 	var t2_count = team2_node.get_child_count()

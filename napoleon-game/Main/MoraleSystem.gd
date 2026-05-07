@@ -15,7 +15,6 @@ func _ready():
 	current_morale = max_morale
 	morale_changed.emit(current_morale)
 
-	# Create timer but DO NOT start it yet
 	timer = Timer.new()
 	timer.wait_time = 1
 	timer.one_shot = false
@@ -23,14 +22,11 @@ func _ready():
 
 	timer.timeout.connect(_on_morale_tick)
 
-	# Wait for game start signal
 	SignalManager.game_started.connect(_on_game_started)
-
 
 func _on_game_started():
 	active = true
 	timer.start()
-
 
 func _on_morale_tick():
 	if not active:
@@ -41,7 +37,6 @@ func _on_morale_tick():
 	else:
 		lose_morale()
 	
-
 func is_team_in_line(min_count: int) -> bool:
 	var team = get_parent().get_parent()
 	if team == null:
@@ -66,11 +61,9 @@ func is_team_in_line(min_count: int) -> bool:
 
 	return true
 
-
 func gain_morale():
 	current_morale = min(max_morale, current_morale + 1)
 	morale_changed.emit(current_morale)
-
 
 func lose_morale():
 	if is_team_in_line(3):

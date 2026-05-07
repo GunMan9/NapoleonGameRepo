@@ -1,6 +1,54 @@
 [gd_scene format=3 uid="uid://cdt2088ej5qyf"]
 
 [ext_resource type="Script" uid="uid://y8ee31mo3jvt" path="res://Main/RoundSystem.gd" id="1_7a2fg"]
+[ext_resource type="Texture2D" uid="uid://cnmymuhrfwqca" path="res://Main/NW_Game_UK.jpg" id="2_lgwh4"]
+[ext_resource type="Texture2D" uid="uid://4714t4rb832a" path="res://Main/NW_Game_France.jpg" id="3_ter4x"]
+[ext_resource type="AudioStream" uid="uid://cs5yt11f2rluu" path="res://Rule Britannia   Instrumental (mp3cut.net).mp3" id="4_ter4x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ter4x"]
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1eyii"]
+font_size = 8
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_wrcde"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rclc4"]
+font = SubResource("FontFile_wrcde")
+font_size = 60
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="RoundUI" type="Control" unique_id=1875661046]
 layout_mode = 3
@@ -9,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_7a2fg")
 
 [node name="ReadyMenu" type="ColorRect" parent="." unique_id=1408536393]
@@ -16,10 +65,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -238.0
-offset_top = 11.0
-offset_right = -11.0
-offset_bottom = 147.0
+offset_left = -234.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 143.0
 grow_horizontal = 0
 color = Color(0.09411765, 0.13725491, 0.19215687, 1)
 
@@ -50,6 +99,135 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Start (nil/nil)"
+
+[node name="RoundInfo" type="Panel" parent="." unique_id=347394657]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 10.0
+offset_right = 117.0
+offset_bottom = 81.0
+grow_horizontal = 2
+
+[node name="GB_Flag" type="TextureRect" parent="RoundInfo" unique_id=319557705]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 57.0
+offset_bottom = 57.0
+texture = ExtResource("2_lgwh4")
+expand_mode = 3
+
+[node name="Timer" type="Label" parent="RoundInfo" unique_id=1533876156]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "30:00"
+label_settings = SubResource("LabelSettings_ter4x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Team1_Tickets" type="Label" parent="RoundInfo" unique_id=1192491459]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -13.0
+offset_right = 53.0
+offset_bottom = -1.0
+grow_vertical = 0
+text = "nil"
+label_settings = SubResource("LabelSettings_1eyii")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FR_Flag" type="TextureRect" parent="RoundInfo" unique_id=1060596871]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 57.0
+grow_horizontal = 0
+texture = ExtResource("3_ter4x")
+expand_mode = 3
+
+[node name="Team2_Tickets" type="Label" parent="RoundInfo" unique_id=1722479915]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -13.0
+offset_right = -12.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "nil"
+label_settings = SubResource("LabelSettings_1eyii")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GB_Victory" type="Panel" parent="." unique_id=52401069]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="GB_Victory" unique_id=161432943]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -215.0
+offset_right = 735.0
+offset_bottom = 765.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lgwh4")
+
+[node name="Title" type="Label" parent="GB_Victory" unique_id=678351007]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.081
+anchor_right = 0.5
+anchor_bottom = 0.081
+offset_left = -228.0
+offset_top = -40.488
+offset_right = 229.0
+offset_bottom = 40.512
+grow_horizontal = 2
+text = "BRITISH VICTORY"
+label_settings = SubResource("LabelSettings_rclc4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RuleBritannia" type="AudioStreamPlayer" parent="GB_Victory" unique_id=1274168234]
+stream = ExtResource("4_ter4x")
 
 [connection signal="pressed" from="ReadyMenu/ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="ReadyMenu/StartButton" to="." method="_on_start_button_pressed"]
