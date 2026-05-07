@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bt7pvpxp7cdja"]
 
 [ext_resource type="PackedScene" uid="uid://hh1ccmapqkeo" path="res://Main/team_selector.tscn" id="2_2w1kt"]
+[ext_resource type="PackedScene" uid="uid://cdt2088ej5qyf" path="res://Main/round_ui.tscn" id="2_qvhan"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7u77a"]
 
@@ -100,3 +101,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2w1kt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6991363, -32.003605)
 mesh = SubResource("BoxMesh_yh5la")
 surface_material_override/0 = SubResource("StandardMaterial3D_qvhan")
+
+[node name="RoundUI" parent="." unique_id=1875661046 instance=ExtResource("2_qvhan")]
+visible = false

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cdt2088ej5qyf"]
+
+[ext_resource type="Script" uid="uid://y8ee31mo3jvt" path="res://Main/RoundSystem.gd" id="1_7a2fg"]
+
+[node name="RoundUI" type="Control" unique_id=1875661046]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7a2fg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=940900293]
+
+[node name="ReadyMenu" type="ColorRect" parent="CanvasLayer" unique_id=1408536393]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -238.0
+offset_top = 11.0
+offset_right = -11.0
+offset_bottom = 147.0
+grow_horizontal = 0
+color = Color(0.09411765, 0.13725491, 0.19215687, 1)
+
+[node name="ReadyButton" type="Button" parent="CanvasLayer/ReadyMenu" unique_id=660920114]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.5
+offset_top = 14.0
+offset_right = 99.5
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "Status: nil
+"
+
+[node name="StartButton" type="Button" parent="CanvasLayer/ReadyMenu" unique_id=1497351927]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.5
+offset_top = -60.0
+offset_right = 99.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start (nil/nil)"
+
+[connection signal="pressed" from="CanvasLayer/ReadyMenu/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ReadyMenu/StartButton" to="." method="_on_start_button_pressed"]

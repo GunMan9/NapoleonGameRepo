@@ -16,6 +16,8 @@ var data = {
 var team1 = ""
 var team2 = ""
 
+signal roundui
+
 func _ready():
 	var coalition_list = data["Coalition"]
 	var french_list = data["French Empire"]
@@ -64,6 +66,7 @@ func _on_team_1_button_pressed() -> void:
 	player_instance.global_position = team1_spawn.global_position
 	team1_node.add_child(player_instance)
 	_update_team_ui()
+	roundui.emit()
 	
 	bg.visible = false
 
@@ -78,6 +81,7 @@ func _on_team_2_button_pressed() -> void:
 	player_instance.global_position = team2_spawn.global_position
 	team2_node.add_child(player_instance)
 	_update_team_ui()
+	roundui.emit()
 	
 	bg.visible = false
 
