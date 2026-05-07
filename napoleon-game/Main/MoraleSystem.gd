@@ -10,8 +10,6 @@ signal morale_zero
 var current_morale: int
 var timer: Timer
 
-signal game_started
-
 func _ready():
 	current_morale = max_morale
 	morale_changed.emit(current_morale)

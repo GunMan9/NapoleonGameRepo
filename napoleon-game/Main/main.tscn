@@ -103,4 +103,4 @@ mesh = SubResource("BoxMesh_yh5la")
 surface_material_override/0 = SubResource("StandardMaterial3D_qvhan")
 
 [node name="RoundUI" parent="." unique_id=1875661046 instance=ExtResource("2_qvhan")]
-visible = false
+team_selector = NodePath("../TeamSelector")

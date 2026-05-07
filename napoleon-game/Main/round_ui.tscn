@@ -11,9 +11,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7a2fg")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=940900293]
-
-[node name="ReadyMenu" type="ColorRect" parent="CanvasLayer" unique_id=1408536393]
+[node name="ReadyMenu" type="ColorRect" parent="." unique_id=1408536393]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -24,7 +23,7 @@ offset_bottom = 147.0
 grow_horizontal = 0
 color = Color(0.09411765, 0.13725491, 0.19215687, 1)
 
-[node name="ReadyButton" type="Button" parent="CanvasLayer/ReadyMenu" unique_id=660920114]
+[node name="ReadyButton" type="Button" parent="ReadyMenu" unique_id=660920114]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -37,7 +36,7 @@ grow_horizontal = 2
 text = "Status: nil
 "
 
-[node name="StartButton" type="Button" parent="CanvasLayer/ReadyMenu" unique_id=1497351927]
+[node name="StartButton" type="Button" parent="ReadyMenu" unique_id=1497351927]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -52,5 +51,5 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Start (nil/nil)"
 
-[connection signal="pressed" from="CanvasLayer/ReadyMenu/ReadyButton" to="." method="_on_ready_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/ReadyMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ReadyMenu/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="pressed" from="ReadyMenu/StartButton" to="." method="_on_start_button_pressed"]
