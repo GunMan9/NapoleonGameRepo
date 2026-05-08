@@ -26,6 +26,7 @@ func _ready():
 	get_node("ReadyMenu").visible = false
 	get_node("RoundInfo").visible = false
 	get_node("GB_Victory").visible = false
+	get_node("FR_Victory").visible = false
 
 	round_timer = Timer.new()
 	round_timer.one_shot = false
@@ -40,20 +41,16 @@ func _ready():
 
 	call_deferred("_connect_team_selector")
 
-
 func _connect_team_selector():
 	var ts = get_node_or_null(team_selector)
 	if ts and ts.has_signal("roundui"):
 		ts.roundui.connect(_on_roundui)
 
-
 func _sync_tickets_ui():
 	t1_tickets_label.text = str(team1_tickets)
 	t2_tickets_label.text = str(team2_tickets)
 
-
 func _on_player_died(team_name: String):
-
 	print("RECEIVED:", team_name)
 
 	if team_name == "British Empire":
@@ -72,12 +69,10 @@ func _on_player_died(team_name: String):
 	elif team2_tickets <= 0:
 		end_game("British Empire")
 
-
 func _on_roundui():
 	get_node("ReadyMenu").visible = true
 	update_start_button()
 	update_status()
-
 
 func _on_ready_button_pressed() -> void:
 	var player_id = 1
@@ -90,7 +85,6 @@ func _on_ready_button_pressed() -> void:
 	update_start_button()
 	update_status()
 
-
 func update_status():
 	var player_id = 1
 
@@ -98,7 +92,6 @@ func update_status():
 		readybutton.text = "Status: Ready"
 	else:
 		readybutton.text = "Status: Not Ready"
-
 
 func get_player_count() -> int:
 	var players_node = get_node(players)
@@ -108,7 +101,6 @@ func get_player_count() -> int:
 		count += team.get_child_count()
 
 	return count
-
 
 func update_start_button():
 	var ready_count = ready_players.size()
@@ -123,7 +115,6 @@ func update_start_button():
 
 	startbutton.disabled = ready_count < total_count
 
-
 func _on_start_button_pressed() -> void:
 	var total = get_player_count()
 	var ready = ready_players.size()
@@ -134,12 +125,10 @@ func _on_start_button_pressed() -> void:
 		get_node("RoundInfo").visible = true
 		_start_round_timer()
 
-
 func _start_round_timer():
 	round_time_left = 1 * 60
 	round_timer.start()
 	update_timer_ui()
-
 
 func _on_round_timer_tick():
 	round_time_left -= 1
@@ -157,15 +146,12 @@ func _on_round_timer_tick():
 		else:
 			end_game(["British Empire", "France"].pick_random())
 
-
 func update_timer_ui():
 	var minutes = int(round_time_left / 60)
 	var seconds = round_time_left % 60
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
-
 func end_game(winning_team: String):
-
 	if round_timer:
 		round_timer.stop()
 
@@ -177,6 +163,14 @@ func end_game(winning_team: String):
 		GB_Win_Screen.visible = true
 		RoundInfo.visible = false
 		GB_Win_Song.play()
+	elif winning_team == "France":
+		var FR_Win_Screen = get_node("FR_Victory")
+		var RoundInfo = get_node("RoundInfo")
+		var FR_Win_Song = get_node("FR_Victory/VicIsOurs")
+		
+		FR_Win_Screen.visible = true
+		RoundInfo.visible = false
+		FR_Win_Song.play()
 		
 	if winning_team == "France":
 		print("France won")
@@ -184,7 +178,7 @@ func end_game(winning_team: String):
 	SignalManager.round_ended.emit()
 
 	get_node("RoundInfo").visible = false
-	get_node("ReadyMenu").visible = true
+	get_node("ReadyMenu").visible = false
 
 func _on_round_end():
 	end_game("Draw")

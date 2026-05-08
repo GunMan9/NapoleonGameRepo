@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cchbetbirk1lv"
+path="res://.godot/imported/La Victoire est à Nous (Victory is ours) French Napoleonic Military MarchFanfare [HQ] (mp3cut.net).mp3-c1886f62a620775756750cd0945e8260.mp3str"
+
+[deps]
+
+source_file="res://Main/La Victoire est à Nous (Victory is ours) French Napoleonic Military MarchFanfare [HQ] (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/La Victoire est à Nous (Victory is ours) French Napoleonic Military MarchFanfare [HQ] (mp3cut.net).mp3-c1886f62a620775756750cd0945e8260.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

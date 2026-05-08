@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://y8ee31mo3jvt" path="res://Main/RoundSystem.gd" id="1_7a2fg"]
 [ext_resource type="Texture2D" uid="uid://cnmymuhrfwqca" path="res://Main/NW_Game_UK.jpg" id="2_lgwh4"]
 [ext_resource type="Texture2D" uid="uid://4714t4rb832a" path="res://Main/NW_Game_France.jpg" id="3_ter4x"]
-[ext_resource type="AudioStream" uid="uid://cs5yt11f2rluu" path="res://Rule Britannia   Instrumental (mp3cut.net).mp3" id="4_ter4x"]
+[ext_resource type="AudioStream" uid="uid://cs5yt11f2rluu" path="res://Main/Rule Britannia   Instrumental (mp3cut.net).mp3" id="4_ter4x"]
+[ext_resource type="AudioStream" uid="uid://cchbetbirk1lv" path="res://Main/La Victoire est à Nous (Victory is ours) French Napoleonic Military MarchFanfare [HQ] (mp3cut.net).mp3" id="5_wrcde"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ter4x"]
 font_size = 40
@@ -228,6 +229,51 @@ vertical_alignment = 1
 
 [node name="RuleBritannia" type="AudioStreamPlayer" parent="GB_Victory" unique_id=1274168234]
 stream = ExtResource("4_ter4x")
+
+[node name="FR_Victory" type="Panel" parent="." unique_id=1656928922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="FR_Victory" unique_id=176785844]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -215.0
+offset_right = 735.0
+offset_bottom = 765.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ter4x")
+
+[node name="Title" type="Label" parent="FR_Victory" unique_id=553201313]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.081
+anchor_right = 0.5
+anchor_bottom = 0.081
+offset_left = -228.0
+offset_top = -40.488
+offset_right = 229.0
+offset_bottom = 40.512
+grow_horizontal = 2
+text = "FRENCH VICTORY"
+label_settings = SubResource("LabelSettings_rclc4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VicIsOurs" type="AudioStreamPlayer" parent="FR_Victory" unique_id=1807674398]
+stream = ExtResource("5_wrcde")
 
 [connection signal="pressed" from="ReadyMenu/ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="ReadyMenu/StartButton" to="." method="_on_start_button_pressed"]
