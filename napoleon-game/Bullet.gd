@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed = 30.0
+var speed = 250.0
 var gravity = 9.8
 var drag = 0.1
 

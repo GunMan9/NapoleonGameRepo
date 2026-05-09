@@ -74,7 +74,7 @@ offset_right = 239.0
 offset_bottom = 95.119995
 grow_horizontal = 2
 grow_vertical = 2
-text = "Title Goes Here"
+text = "Historically Inaccurate Battles"
 label_settings = SubResource("LabelSettings_svypr")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -137,9 +137,9 @@ offset_right = 467.0
 offset_bottom = 95.45599
 grow_horizontal = 2
 text = "Credits
-Owner - vokrm
-Scripters - Admiral Wolf, airb0und
-Modellers - The_Warrior, UltimateChibby, vokrm"
+Project Lead - vokrm
+Programming - airb0und
+Modelling - The_Warrior, UltimateChibby, vokrm"
 label_settings = SubResource("LabelSettings_svypr")
 horizontal_alignment = 1
 vertical_alignment = 1

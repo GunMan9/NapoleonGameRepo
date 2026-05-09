@@ -27,6 +27,7 @@ func _ready():
 	get_node("RoundInfo").visible = false
 	get_node("GB_Victory").visible = false
 	get_node("FR_Victory").visible = false
+	get_node("RespawnMenu").visible = false
 
 	round_timer = Timer.new()
 	round_timer.one_shot = false
@@ -121,9 +122,23 @@ func _on_start_button_pressed() -> void:
 
 	if total > 0 and ready >= total:
 		SignalManager.game_started.emit()
+
+		var players_node = get_node(players)
+
+		var spawns_node = players_node.get_parent().get_node("Spawns")
+		var t1_spawn = spawns_node.get_node("Team1Spawn/Spawnpoint")
+		var t2_spawn = spawns_node.get_node("Team2Spawn/Spawnpoint")
+
 		get_node("ReadyMenu").visible = false
 		get_node("RoundInfo").visible = true
+
 		_start_round_timer()
+
+		for child in players_node.get_node("Team1").get_children():
+			child.global_position = t1_spawn.global_position
+
+		for child in players_node.get_node("Team2").get_children():
+			child.global_position = t2_spawn.global_position
 
 func _start_round_timer():
 	round_time_left = 1 * 60

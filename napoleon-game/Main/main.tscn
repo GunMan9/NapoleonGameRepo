@@ -10,6 +10,13 @@ albedo_color = Color(0, 0.6, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh5la"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k3v36"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liyct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eunhr"]
+albedo_color = Color(0, 0.42352942, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_yh5la"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w1kt"]
@@ -18,10 +25,6 @@ metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvhan"]
 albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_k3v36"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liyct"]
 
 [node name="Main" type="Node3D" unique_id=1670441611]
 
@@ -50,21 +53,6 @@ metadata/Team = ""
 
 [node name="TeamSelector" parent="." unique_id=1472489195 instance=ExtResource("2_2w1kt")]
 players_path = NodePath("../Players")
-
-[node name="Team2Spawn" type="StaticBody3D" parent="." unique_id=37981033]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Spawnpoint" type="MeshInstance3D" parent="Team2Spawn" unique_id=1808684012]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6991363, -32.003605)
-mesh = SubResource("BoxMesh_yh5la")
-surface_material_override/0 = SubResource("StandardMaterial3D_2w1kt")
-
-[node name="Team1Spawn" type="StaticBody3D" parent="." unique_id=470134624]
-
-[node name="Spawnpoint" type="MeshInstance3D" parent="Team1Spawn" unique_id=2140232864]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6991363, -32.003605)
-mesh = SubResource("BoxMesh_yh5la")
-surface_material_override/0 = SubResource("StandardMaterial3D_qvhan")
 
 [node name="TempNode" type="Node" parent="." unique_id=1697006382]
 
@@ -107,3 +95,42 @@ shape = SubResource("CapsuleShape3D_liyct")
 [node name="RoundUI" parent="." unique_id=1875661046 instance=ExtResource("2_qvhan")]
 team_selector = NodePath("../TeamSelector")
 players = NodePath("../Players")
+
+[node name="Lobby" type="StaticBody3D" parent="." unique_id=1302700110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 107.82594, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="Lobby" unique_id=1593027020]
+transform = Transform3D(50, 0, 0, 0, 0.177, 0, 0, 0, 50, -0.03643799, -0.0018157959, -0.041180193)
+mesh = SubResource("BoxMesh_7u77a")
+surface_material_override/0 = SubResource("StandardMaterial3D_eunhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lobby" unique_id=540467728]
+transform = Transform3D(50, 0, 0, 0, 0.17, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("BoxShape3D_yh5la")
+
+[node name="Spawns" type="Node" parent="." unique_id=56537013]
+
+[node name="Team2Spawn" type="StaticBody3D" parent="Spawns" unique_id=37981033]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="Spawnpoint" type="MeshInstance3D" parent="Spawns/Team2Spawn" unique_id=1808684012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6991363, -32.003605)
+mesh = SubResource("BoxMesh_yh5la")
+surface_material_override/0 = SubResource("StandardMaterial3D_2w1kt")
+
+[node name="Team1Spawn" type="StaticBody3D" parent="Spawns" unique_id=470134624]
+visible = false
+
+[node name="Spawnpoint" type="MeshInstance3D" parent="Spawns/Team1Spawn" unique_id=2140232864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6991363, -32.003605)
+mesh = SubResource("BoxMesh_yh5la")
+surface_material_override/0 = SubResource("StandardMaterial3D_qvhan")
+
+[node name="LobbySpawn" type="StaticBody3D" parent="Spawns" unique_id=2143297945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 112.59154, 0)
+visible = false
+
+[node name="Spawnpoint" type="MeshInstance3D" parent="Spawns/LobbySpawn" unique_id=276138940]
+mesh = SubResource("BoxMesh_yh5la")
+surface_material_override/0 = SubResource("StandardMaterial3D_qvhan")

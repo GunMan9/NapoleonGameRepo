@@ -61,13 +61,12 @@ func _assign_teams_to_nodes(t1, t2):
 func _on_team_1_button_pressed() -> void:
 	var players_node = get_node(players_path)
 	var team1_node = players_node.get_node("Team1")
+	var lobby_spawn = players_node.get_parent().get_node("Spawns").get_node("LobbySpawn")
 	var bg = get_node("Background")
 	
-	var team1_spawn = players_node.get_parent().get_node("Team1Spawn").get_node("Spawnpoint")
-	
 	var player_instance = player.instantiate()
-	player_instance.global_position = team1_spawn.global_position
 	team1_node.add_child(player_instance)
+	player_instance.global_position = lobby_spawn.global_position
 	_update_team_ui()
 	roundui.emit()
 	
@@ -76,13 +75,12 @@ func _on_team_1_button_pressed() -> void:
 func _on_team_2_button_pressed() -> void:
 	var players_node = get_node(players_path)
 	var team2_node = players_node.get_node("Team2")
+	var lobby_spawn = players_node.get_parent().get_node("Spawns").get_node("LobbySpawn")
 	var bg = get_node("Background")
 	
-	var team2_spawn = players_node.get_parent().get_node("Team2Spawn").get_node("Spawnpoint")
-	
 	var player_instance = player.instantiate()
-	player_instance.global_position = team2_spawn.global_position
 	team2_node.add_child(player_instance)
+	player_instance.global_position = lobby_spawn.global_position
 	_update_team_ui()
 	roundui.emit()
 	
